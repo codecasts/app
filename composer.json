@@ -8,10 +8,11 @@
     ],
     "license": "MIT",
     "require": {
-        "php": "^7.1.3",
+        "php": "^7.2.0",
         "fideloper/proxy": "^4.0",
         "jenssegers/mongodb": "^3.4",
         "laravel/framework": "5.7.*",
+        "laravel/horizon": "^2.0",
         "laravel/tinker": "^1.0",
         "predis/predis": "^1.1"
     },
@@ -30,7 +31,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": ["*"]
         }
     },
     "autoload": {

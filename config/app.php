@@ -165,6 +165,13 @@ return [
         /*
          * Package Service Providers...
          */
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
+        BeyondCode\DumpServer\DumpServerServiceProvider::class,
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
+        Carbon\Laravel\ServiceProvider::class,
+        Laravel\Horizon\HorizonServiceProvider::class,
+        NunoMaduro\Collision\Adapters\Laravel\CollisionServiceProvider::class,
 
         /*
          * Application Service Providers...

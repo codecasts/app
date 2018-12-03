@@ -1,0 +1,101 @@
+### CODECASTS - Docker Compose file.
+
+# version.
+version: '3'
+
+# define services.
+services:
+
+  # SMTP
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - 8025:8025
+
+  # MongoDB.
+  mongo:
+    image: mongo
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=codecasts
+      - MONGO_INITDB_ROOT_PASSWORD=codecasts
+      - MONGO_INITDB_DATABASE=codecasts
+
+  # Redis.
+  cache:
+    image: redis:alpine
+    command: --requirepass "codecasts"
+    volumes:
+      - redis-data:/data
+    ports:
+      - 6379:6379
+
+  # Minio.io
+  minio:
+    image: minio/minio:latest
+    command: ["server", "/data"]
+    tty: true
+    volumes:
+      - minio-data:/data
+      - minio-config:/root/.minio
+    environment:
+      - MINIO_ACCESS_KEY=BDIS44FB8UUXM40DFCKV
+      - MINIO_SECRET_KEY=TA5pCZ8ZLPCRP0rtkIqommpHve_pakPZbdQqR6XM
+    ports:
+      - 9000:9000
+
+  # API.
+  api:
+    image: ambientum/php:7.2-nginx
+    environment:
+      - XDEBUG_ENABLED=true
+      - PHP_IDE_CONFIG=serverName=ambientum
+    volumes:
+      - .:/var/www/app
+      - dot-config:/home/ambientum/.config
+      - dot-cache:/home/ambientum/.cache
+      - dot-local:/home/ambientum/.local
+      - dot-composer:/home/ambientum/.composer
+    ports:
+      - 8080:8080
+      - 8083:8083
+    links:
+      - cache
+      - mailhog
+      - mongo
+      - minio
+
+  # Queues.
+  queue:
+    image: ambientum/php:7.2
+    depends_on:
+      - cache
+    command: [ "php", "artisan", "horizon:delay-start"]
+    volumes:
+      - .:/var/www/app
+      - dot-config:/home/ambientum/.config
+      - dot-cache:/home/ambientum/.cache
+      - dot-local:/home/ambientum/.local
+      - dot-composer:/home/ambientum/.composer
+    links:
+      - cache
+      - mailhog
+      - mongo
+      - minio
+
+# volumes.
+volumes:
+  # database and cache storage.
+  mongo-data:
+  redis-data:
+  # file storage.
+  minio-data:
+  minio-config:
+  # local caching.
+  dot-config:
+  dot-local:
+  dot-cache:
+  dot-composer:
