@@ -37,8 +37,11 @@ It's recommended you use `codecasts.local` as virtual host since some references
 
 ## 1.4. Links & Ports:
 
-| Resource    | Address/Port                |
-| -           | -                           |
-| Application | http://codecasts.local:8080 |
-
+| Resource        | Value                                         |
+| -               | -                                             |
+| Application     | http://codecasts.local:8080                   |
+| Redis           | cache:6379                                    |                                                   |
+| MongoDB         | mongodb://codecasts:codecasts@mongo/codecasts |
+| MailHog (SMTP)  | mailhog:1025                                  |
+| MailHog (Web)   | http://codecasts.local:8025                   |
    
