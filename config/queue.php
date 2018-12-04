@@ -33,11 +33,11 @@ return [
         'sync' => [
             'driver' => 'sync',
         ],
-
         'database' => [
-            'driver' => 'database',
-            'table' => 'jobs',
-            'queue' => 'default',
+            'driver' => 'mongodb',
+            'table'  => 'jobs',
+            'queue'  => 'default',
+            'expire' => 60,
             'retry_after' => 90,
         ],
 

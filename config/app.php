@@ -231,6 +231,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // package aliases.
+        'Moloquent'       => Jenssegers\Mongodb\Eloquent\Model::class,
+
     ],
 
 ];
