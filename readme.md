@@ -31,3 +31,14 @@ docker-compose run front yarn
 docker-compose up
 ```
 
+## 1.3. Optional virtua host:
+
+It's recommended you use `codecasts.local` as virtual host since some references will point to `http://codecasts.local:8080`
+
+## 1.4. Links & Ports:
+
+| Resource    | Address/Port                |
+| -           | -                           |
+| Application | http://codecasts.local:8080 |
+
+   
