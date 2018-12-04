@@ -47,8 +47,8 @@ services:
     ports:
       - 9000:9000
 
-  # API.
-  api:
+  # APP.
+  app:
     image: ambientum/php:7.2-nginx
     environment:
       - XDEBUG_ENABLED=true
