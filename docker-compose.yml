@@ -86,6 +86,15 @@ services:
       - mongo
       - minio
 
+  # Front
+  front:
+    image: ambientum/node:10
+    volumes:
+      - .:/var/www/app
+      - dot-config:/home/ambientum/.config
+      - dot-cache:/home/ambientum/.cache
+      - dot-local:/home/ambientum/.local
+
 # volumes.
 volumes:
   # database and cache storage.
