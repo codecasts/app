@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Jenssegers\Mongodb\MongodbServiceProvider::class,
+        Jenssegers\Mongodb\MongodbQueueServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         BeyondCode\DumpServer\DumpServerServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
