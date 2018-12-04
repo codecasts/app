@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Codecasts;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
