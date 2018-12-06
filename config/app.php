@@ -173,6 +173,11 @@ return [
         Carbon\Laravel\ServiceProvider::class,
         Laravel\Horizon\HorizonServiceProvider::class,
         NunoMaduro\Collision\Adapters\Laravel\CollisionServiceProvider::class,
+        Spatie\Fractal\FractalServiceProvider::class,
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Clockwork\Support\Laravel\ClockworkServiceProvider::class,
+        Spatie\Cors\CorsServiceProvider::class,
 
         /*
          * Application Service Providers...
