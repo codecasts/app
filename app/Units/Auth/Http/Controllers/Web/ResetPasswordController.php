@@ -1,9 +1,10 @@
 <?php
 
-namespace Codecasts\Http\Controllers\Auth;
+namespace Codecasts\Units\Auth\Http\Controllers\Web;
 
-use Codecasts\Http\Controllers\Controller;
+use Codecasts\Support\Http\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
@@ -21,6 +22,11 @@ class ResetPasswordController extends Controller
     use ResetsPasswords;
 
     /**
+     * @var string Unit name.
+     */
+    protected $unit = 'auth';
+
+    /**
      * Where to redirect users after resetting their password.
      *
      * @var string
@@ -35,5 +41,23 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
+        parent::__construct();
+    }
+
+    /**
+     * Display the password reset view for the given token.
+     *
+     * If no token is present, display the link request form.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  string|null  $token
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showResetForm(Request $request, $token = null)
+    {
+        return $this->view('passwords.reset')->with(
+            ['token' => $token, 'email' => $request->get('email')]
+        );
     }
 }

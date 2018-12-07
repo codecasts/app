@@ -1,8 +1,8 @@
 <?php
 
-namespace Codecasts\Http\Controllers\Auth;
+namespace Codecasts\Units\Auth\Http\Controllers\Web;
 
-use Codecasts\Http\Controllers\Controller;
+use Codecasts\Support\Http\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
@@ -21,6 +21,21 @@ class ForgotPasswordController extends Controller
     use SendsPasswordResetEmails;
 
     /**
+     * @var string Unit name.
+     */
+    protected $unit = 'auth';
+
+    /**
+     * Display the form to request a password reset link.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLinkRequestForm()
+    {
+        return $this->view('passwords.email');
+    }
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -28,5 +43,7 @@ class ForgotPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
+        parent::__construct();
     }
 }

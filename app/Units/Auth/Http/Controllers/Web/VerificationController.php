@@ -1,9 +1,10 @@
 <?php
 
-namespace Codecasts\Http\Controllers\Auth;
+namespace Codecasts\Units\Auth\Http\Controllers\Web;
 
-use Codecasts\Http\Controllers\Controller;
+use Codecasts\Support\Http\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\Request;
 
 class VerificationController extends Controller
 {
@@ -19,6 +20,11 @@ class VerificationController extends Controller
     */
 
     use VerifiesEmails;
+
+    /**
+     * @var string Unit name.
+     */
+    protected $unit = 'auth';
 
     /**
      * Where to redirect users after verification.
@@ -37,5 +43,20 @@ class VerificationController extends Controller
         $this->middleware('auth');
         $this->middleware('signed')->only('verify');
         $this->middleware('throttle:6,1')->only('verify', 'resend');
+
+        parent::__construct();
+    }
+
+    /**
+     * Show the email verification notice.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request)
+    {
+        return $request->user()->hasVerifiedEmail()
+            ? redirect($this->redirectPath())
+            : $this->view('verify');
     }
 }

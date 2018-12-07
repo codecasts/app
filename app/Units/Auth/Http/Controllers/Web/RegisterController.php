@@ -1,9 +1,9 @@
 <?php
 
-namespace Codecasts\Http\Controllers\Auth;
+namespace Codecasts\Units\Auth\Http\Controllers\Web;
 
-use Codecasts\User;
-use Codecasts\Http\Controllers\Controller;
+use Codecasts\Domains\Users\User;
+use Codecasts\Support\Http\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -31,6 +31,11 @@ class RegisterController extends Controller
     protected $redirectTo = '/home';
 
     /**
+     * @var string Unit name.
+     */
+    protected $unit = 'auth';
+
+    /**
      * Create a new controller instance.
      *
      * @return void
@@ -38,6 +43,18 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+
+        parent::__construct();
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm()
+    {
+        return $this->view('register');
     }
 
     /**
@@ -59,7 +76,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \Codecasts\User
+     * @return \Codecasts\Domains\Users\User
      */
     protected function create(array $data)
     {

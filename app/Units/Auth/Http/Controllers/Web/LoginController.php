@@ -1,8 +1,8 @@
 <?php
 
-namespace Codecasts\Http\Controllers\Auth;
+namespace Codecasts\Units\Auth\Http\Controllers\Web;
 
-use Codecasts\Http\Controllers\Controller;
+use Codecasts\Support\Http\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -21,6 +21,11 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
+     * @var string Unit name.
+     */
+    protected $unit = 'auth';
+
+    /**
      * Where to redirect users after login.
      *
      * @var string
@@ -35,5 +40,17 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+
+        parent::__construct();
+    }
+
+    /**
+     * Show the application's login form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showLoginForm()
+    {
+        return $this->view('login');
     }
 }
