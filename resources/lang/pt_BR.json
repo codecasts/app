@@ -1,0 +1,15 @@
+{
+    "Name": "Nome",
+    "Confirm Password": "Confirmar Senha",
+    "Login": "Entrar",
+    "Remember Me": "Lembrar minha sessão",
+    "Password": "Senha",
+    "E-Mail Address": "Email",
+    "Forgot Your Password?": "Esqueceu sua senha?",
+    "Register": "Cadastrar",
+    "Need an Account?": "Precisa de uma Conta?",
+    "Already Registered?": "Já possui uma Conta?",
+    "We have e-mailed your password reset link!": "Um email contendo o link para recuperar sua senha foi enviado!",
+    "Send Password Reset Link": "Enviar Email de Recuperação",
+    "Reset Password": "Recuperar Senha"
+}
