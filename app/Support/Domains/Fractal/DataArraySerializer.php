@@ -4,6 +4,11 @@ namespace Codecasts\Support\Domains\Fractal;
 
 use League\Fractal\Serializer\DataArraySerializer as BaseSerializer;
 
+/**
+ * Class DataArraySerializer.
+ *
+ * Serializes data into a normalized form.
+ */
 class DataArraySerializer extends BaseSerializer
 {
     /**

@@ -2,7 +2,6 @@
 
 namespace Codecasts\Support\Domains\Fractal;
 
-use Codecasts\Support\Domains\Repositories\Fractal\Transformer;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
