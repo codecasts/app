@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('auth::login') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -72,15 +72,15 @@
     </div>
     <div class="row justify-content-center pt-4">
         <div class="col-md-12 text-center pt-4">
-            @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
+            @if (Route::has('auth::password.request'))
+                <a class="btn btn-link" href="{{ route('auth::password.request') }}">
                     {{ __('Forgot Your Password?') }}
                 </a>
             @endif
         </div>
         <div class="col-md-12 text-center pt-4">
-            @if (Route::has('register'))
-                <a class="" href="{{ route('register') }}">{{ __('Need an Account?') }}</a>
+            @if (Route::has('auth::register'))
+                <a class="" href="{{ route('auth::register') }}">{{ __('Need an Account?') }}</a>
             @endif
         </div>
     </div>

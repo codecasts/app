@@ -77,8 +77,8 @@
     </div>
     <div class="row justify-content-center pt-4">
         <div class="col-md-12 text-center pt-4">
-            @if (Route::has('login'))
-                <a class="" href="{{ route('login') }}">{{ __('Already Registered?') }}</a>
+            @if (Route::has('auth::login'))
+                <a class="" href="{{ route('auth::login') }}">{{ __('Already Registered?') }}</a>
             @endif
         </div>
     </div>
