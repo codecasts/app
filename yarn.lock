@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@font/nunito@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.npmjs.org/@font/nunito/-/nunito-1.0.3.tgz#2462dfd3da1dcc4835bffb02605644215b8d698b"
+  integrity sha1-JGLf09odzEg1v/sCYFZEIVuNaYs=
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
