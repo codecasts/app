@@ -1,7 +1,8 @@
 <?php
 
-namespace Codecasts;
+namespace Codecasts\Domains\Users;
 
+use Codecasts\Support\Domains\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -9,12 +10,15 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Jenssegers\Mongodb\Eloquent\Model;
 
-class User extends Model implements AuthenticatableContract,
-    AuthorizableContract,
-    CanResetPasswordContract
+/**
+ * Class User.
+ *
+ * Main user model.
+ */
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
+    // enabled traits.
     use Authenticatable, Authorizable, CanResetPassword, Notifiable;
 
     /**
