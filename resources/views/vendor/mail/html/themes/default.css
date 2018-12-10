@@ -30,7 +30,7 @@ blockquote {
 }
 
 a {
-    color: #3869D4;
+    color: #7740fe;
 }
 
 a img {
@@ -220,11 +220,11 @@ img {
 
 .button-blue,
 .button-primary {
-    background-color: #3097D1;
-    border-top: 10px solid #3097D1;
-    border-right: 18px solid #3097D1;
-    border-bottom: 10px solid #3097D1;
-    border-left: 18px solid #3097D1;
+    background-color: #7740fe;
+    border-top: 10px solid #7740fe;
+    border-right: 18px solid #7740fe;
+    border-bottom: 10px solid #7740fe;
+    border-left: 18px solid #7740fe;
 }
 
 .button-green,
