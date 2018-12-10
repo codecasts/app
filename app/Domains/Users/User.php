@@ -2,6 +2,7 @@
 
 namespace Codecasts\Domains\Users;
 
+use Codecasts\Domains\Users\Notifications\ResetPassword;
 use Codecasts\Support\Domains\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Authenticatable;
@@ -38,4 +39,15 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
+    }
 }
