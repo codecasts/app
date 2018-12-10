@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => env('APP_TIMEZONE', 'UTC'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => env('APP_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
@@ -179,14 +179,12 @@ return [
         Clockwork\Support\Laravel\ClockworkServiceProvider::class,
         Spatie\Cors\CorsServiceProvider::class,
 
-        /*
-         * Application Service Providers...
+
+        /**
+         * Units Service Providers
          */
-        Codecasts\Providers\AppServiceProvider::class,
-        Codecasts\Providers\AuthServiceProvider::class,
-        // Codecasts\Providers\BroadcastServiceProvider::class,
-        Codecasts\Providers\EventServiceProvider::class,
-        Codecasts\Providers\RouteServiceProvider::class,
+        Codecasts\Units\Core\Providers\UnitServiceProvider::class,
+        Codecasts\Units\Auth\Providers\UnitServiceProvider::class,
 
     ],
 
