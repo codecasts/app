@@ -1,6 +1,6 @@
 <?php
 
-namespace Codecasts\Providers;
+namespace Codecasts\Units\Core\Providers;
 
 use Laravel\Horizon\Horizon;
 use Illuminate\Support\Facades\Gate;
