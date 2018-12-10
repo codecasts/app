@@ -1,11 +1,16 @@
 <?php
 
-namespace Codecasts\Exceptions;
+namespace Codecasts\Units;
 
 use Exception;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Foundation\Exceptions\Handler;
 
-class Handler extends ExceptionHandler
+/**
+ * Class ExceptionHandler.
+ *
+ * Application Exception Handler.
+ */
+class ExceptionHandler extends Handler
 {
     /**
      * A list of the exception types that are not reported.
@@ -30,7 +35,10 @@ class Handler extends ExceptionHandler
      * Report or log an exception.
      *
      * @param  \Exception  $exception
+     *
      * @return void
+     *
+     * @throws
      */
     public function report(Exception $exception)
     {
@@ -42,6 +50,7 @@ class Handler extends ExceptionHandler
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
+     *
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
