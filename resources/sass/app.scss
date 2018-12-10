@@ -1,14 +1,29 @@
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
+// app layout.
+@import "app/layout";
+// app fonts.
+@import "app/fonts";
+// app navbar.
+@import "app/navbar";
+// app cards.
+@import "app/cards";
+
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
+
 .navbar-laravel {
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+
+}
+
+.navbar-brand-bold {
+  font-weight: 600;
 }

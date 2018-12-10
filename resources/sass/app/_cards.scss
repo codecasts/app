@@ -1,0 +1,33 @@
+.card.cc-card {
+  overflow: hidden;
+  border-radius: 6px;
+  border: $gray-200;
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.04);
+
+
+
+  .card-header, .card-body {
+    padding: 1rem;
+    border-radius: 0;
+    background: white;
+    border: none;
+  }
+
+  .card-header + .card-body {
+    // padding-top: 0;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+  }
+
+  &.cc-card-sparse {
+    .card-header, .card-body {
+      // padding: 2rem;
+    }
+  }
+  .card-header {
+    border-bottom: 1px solid $gray-200;
+  }
+}
