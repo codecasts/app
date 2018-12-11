@@ -22,6 +22,11 @@ abstract class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     /**
+     * @var string|null Current unit where the controller belongs.
+     */
+    protected $unit = null;
+
+    /**
      * @var int Default page size.
      */
     protected $pageSize = 30;
@@ -99,5 +104,21 @@ abstract class Controller extends BaseController
     protected function getRequest()
     {
         return app()->make('request');
+    }
+
+    /**
+     * Render a given view.
+     *
+     * @param string $name
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|\Illuminate\Http\Response
+     */
+    protected function view(string $name)
+    {
+        if ($this->unit != null) {
+            return view("{$this->unit}::{$name}");
+        }
+
+        return view($name);
     }
 }
