@@ -73,7 +73,7 @@ services:
     image: ambientum/php:7.2
     depends_on:
       - cache
-    command: [ "php", "artisan", "horizon:delay-start"]
+    command: [ "php", "artisan", "horizon:lazy-start"]
     volumes:
       - .:/var/www/app
       - dot-config:/home/ambientum/.config
