@@ -12,18 +12,11 @@
 // app cards.
 @import "app/cards";
 
-
+.btn.btn-primary {
+  color: white;
+}
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
 
-
-.navbar-laravel {
-  background-color: #fff;
-
-}
-
-.navbar-brand-bold {
-  font-weight: 600;
-}
